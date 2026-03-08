@@ -1,0 +1,44 @@
+<div class="card">
+
+<h2>User Registration</h2>
+
+<form #registerForm="ngForm" (ngSubmit)="register()">
+
+<label>Name</label>
+<input type="text" [(ngModel)]="user.name" name="name" required #name="ngModel">
+<div class="error" *ngIf="name.invalid && name.touched">
+Name is required
+</div>
+
+<label>Email</label>
+<input type="email" [(ngModel)]="user.email" name="email" required #email="ngModel">
+<div class="error" *ngIf="email.invalid && email.touched">
+Email is required
+</div>
+
+<label>Password</label>
+<input type="password" [(ngModel)]="user.password" name="password" required #password="ngModel">
+<div class="error" *ngIf="password.invalid && password.touched">
+Password required
+</div>
+
+<label>Role</label>
+<select [(ngModel)]="user.role" name="role" required #role="ngModel">
+<option value="">Select Role</option>
+<option value="ADMIN">Admin</option>
+<option value="CITIZEN">Citizen</option>
+</select>
+
+<label>Phone</label>
+<input type="text" [(ngModel)]="user.phone" name="phone" required>
+
+<label>Region</label>
+<input type="text" [(ngModel)]="user.region" name="region" required>
+
+<button [disabled]="registerForm.invalid">
+Register
+</button>
+
+</form>
+
+</div>

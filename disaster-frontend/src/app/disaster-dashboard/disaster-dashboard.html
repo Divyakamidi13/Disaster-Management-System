@@ -1,0 +1,55 @@
+<div class="dashboard-container">
+
+<h1>🌍 Disaster Monitoring Dashboard</h1>
+
+<!-- FILTERS -->
+
+<div class="filters">
+
+<input
+type="text"
+placeholder="Search location..."
+[(ngModel)]="searchLocation"
+(ngModelChange)="applyFilters()"
+/>
+
+<select
+[(ngModel)]="selectedSeverity"
+(ngModelChange)="applyFilters()"
+>
+
+<option value="">All Severity</option>
+<option value="Low">Low</option>
+<option value="Medium">Medium</option>
+<option value="High">High</option>
+
+</select>
+
+</div>
+
+<!-- MAP -->
+
+<div id="map"></div>
+
+<h2>📡 Live Disaster Alerts</h2>
+
+<div class="disaster-list">
+
+<div
+class="disaster-card"
+*ngFor="let disaster of filteredDisasters"
+>
+
+<h3>{{disaster.type}}</h3>
+
+<p><strong>Location:</strong> {{disaster.location}}</p>
+
+<p><strong>Magnitude:</strong> {{disaster.magnitude}}</p>
+
+<p><strong>Severity:</strong> {{disaster.severity}}</p>
+
+</div>
+
+</div>
+
+</div>

@@ -1,0 +1,29 @@
+<div class="card">
+
+<h2>Report Disaster</h2>
+
+<form (ngSubmit)="submitReport()">
+
+<label>Disaster Type</label>
+<select [(ngModel)]="disaster.type" name="type">
+<option>Flood</option>
+<option>Fire</option>
+<option>Earthquake</option>
+<option>Cyclone</option>
+</select>
+
+<label>Location</label>
+<input type="text" [(ngModel)]="disaster.location" name="location">
+
+<label>Description</label>
+<input type="text" [(ngModel)]="disaster.description" name="description">
+
+<button>Submit Report</button>
+
+</form>
+
+</div>
+
+<button routerLink="/dashboard">
+Back to Dashboard
+</button>
